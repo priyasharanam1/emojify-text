@@ -1,11 +1,10 @@
-import logo from "./logo.svg";
 import "./App.css";
 import React, { useState } from "react";
 
 function App() {
   const [inputText, setInputText] = useState("");
   const [outputText, setOutputText] = useState("");
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = useState("");
 
   const emojiDictionary = {
     100: ["💯"],
@@ -2398,9 +2397,9 @@ function App() {
   };
 
   const emojifyText = () => {
-    if (inputText.trim() === '') {
-      setMessage('Please provide some text to emojify.');
-      setOutputText('');
+    if (inputText.trim() === "") {
+      setMessage("Please provide some text to emojify.");
+      setOutputText("");
       return;
     }
     const words = inputText.split(" ");
@@ -2424,30 +2423,45 @@ function App() {
   return (
     <div style={{ padding: "20px", fontFamily: "Arial, sans-serif" }}>
       <div className="appdiv">
-      <h1>Emojify Your Text</h1>
-      <textarea
-        rows="6"
-        cols="50"
-        value={inputText}
-        onChange={(e) => setInputText(e.target.value)}
-        placeholder="Type your text here..."
-      ></textarea>
-      <br />
-      <button
-        onClick={emojifyText}
-        style={{ marginTop: "10px", padding: "10px", fontSize: "16px" }}
-      >
-        Emojify
-      </button>
-      <button
-        onClick={resetText}
-        style={{ marginTop: "10px", padding: "10px", fontSize: "16px", marginLeft: "10px" }}
-      >
-        Reset
-      </button>
-      {message && <p style={{ color: 'red', marginTop: '10px' }}>{message}</p>}
-      <h3 style={{ marginTop: "20px" }}>Output:</h3>
-      <p>{outputText}</p>
+        <h1>Emojify Your Text</h1>
+        <textarea
+          rows="6"
+          cols="50"
+          value={inputText}
+          onChange={(e) => setInputText(e.target.value)}
+          placeholder="Type your text here..."
+        ></textarea>
+        <br />
+        <button
+          onClick={emojifyText}
+          style={{
+            marginTop: "10px",
+            padding: "10px",
+            fontSize: "16px",
+            borderRadius: "0.4rem",
+            cursor: "pointer",
+          }}
+        >
+          Emojify
+        </button>
+        <button
+          onClick={resetText}
+          style={{
+            marginTop: "10px",
+            padding: "10px",
+            fontSize: "16px",
+            marginLeft: "10px",
+            borderRadius: "0.4rem",
+            cursor: "pointer",
+          }}
+        >
+          Reset
+        </button>
+        {message && (
+          <p style={{ color: "red", marginTop: "10px" }}>{message}</p>
+        )}
+        <h3 style={{ marginTop: "20px" }}>Output:</h3>
+        <p>{outputText}</p>
       </div>
     </div>
   );
